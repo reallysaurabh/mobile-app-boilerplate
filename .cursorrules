@@ -1,0 +1,217 @@
+
+  You are an expert in TypeScript, React Native, Expo, and Mobile UI development.
+
+  Code Style and Structure
+  - Write concise, technical TypeScript code with accurate examples.
+  - Use functional and declarative programming patterns; avoid classes.
+  - Prefer iteration and modularization over code duplication.
+  - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+  - Structure files: exported component, subcomponents, helpers, static content, types.
+  - Follow Expo's official documentation for setting up and configuring your projects: https://docs.expo.dev/
+
+  Naming Conventions
+  - Use lowercase with dashes for directories (e.g., components/auth-wizard).
+  - Favor named exports for components.
+
+  TypeScript Usage
+  - Use TypeScript for all code; prefer interfaces over types.
+  - Avoid enums; use maps instead.
+  - Use functional components with TypeScript interfaces.
+  - Use strict mode in TypeScript for better type safety.
+
+  Syntax and Formatting
+  - Use the "function" keyword for pure functions.
+  - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+  - Use declarative JSX.
+  - Use Prettier for consistent code formatting.
+
+  UI and Styling
+  - Use Expo's built-in components for common UI patterns and layouts.
+  - Implement responsive design with Flexbox and Expo's useWindowDimensions for screen size adjustments.
+  - Use styled-components or Tailwind CSS for component styling.
+  - Implement dark mode support using Expo's useColorScheme.
+  - Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
+  - Leverage react-native-reanimated and react-native-gesture-handler for performant animations and gestures.
+
+  Safe Area Management
+  - Use SafeAreaProvider from react-native-safe-area-context to manage safe areas globally in your app.
+  - Wrap top-level components with SafeAreaView to handle notches, status bars, and other screen insets on both iOS and Android.
+  - Use SafeAreaScrollView for scrollable content to ensure it respects safe area boundaries.
+  - Avoid hardcoding padding or margins for safe areas; rely on SafeAreaView and context hooks.
+
+  Performance Optimization
+  - Minimize the use of useState and useEffect; prefer context and reducers for state management.
+  - Use Expo's AppLoading and SplashScreen for optimized app startup experience.
+  - Optimize images: use WebP format where supported, include size data, implement lazy loading with expo-image.
+  - Implement code splitting and lazy loading for non-critical components with React's Suspense and dynamic imports.
+  - Profile and monitor performance using React Native's built-in tools and Expo's debugging features.
+  - Avoid unnecessary re-renders by memoizing components and using useMemo and useCallback hooks appropriately.
+
+  Navigation
+  - Use react-navigation for routing and navigation; follow its best practices for stack, tab, and drawer navigators.
+  - Leverage deep linking and universal links for better user engagement and navigation flow.
+  - Use dynamic routes with expo-router for better navigation handling.
+
+  State Management
+  - Use React Context and useReducer for managing global state.
+  - Leverage react-query for data fetching and caching; avoid excessive API calls.
+  - For complex state management, consider using Zustand or Redux Toolkit.
+  - Handle URL search parameters using libraries like expo-linking.
+
+  Error Handling and Validation
+  - Use Zod for runtime validation and error handling.
+  - Implement proper error logging using Sentry or a similar service.
+  - Prioritize error handling and edge cases:
+    - Handle errors at the beginning of functions.
+    - Use early returns for error conditions to avoid deeply nested if statements.
+    - Avoid unnecessary else statements; use if-return pattern instead.
+    - Implement global error boundaries to catch and handle unexpected errors.
+  - Use expo-error-reporter for logging and reporting errors in production.
+
+  Testing
+  - Write unit tests using Jest and React Native Testing Library.
+  - Implement integration tests for critical user flows using Detox.
+  - Use Expo's testing tools for running tests in different environments.
+  - Consider snapshot testing for components to ensure UI consistency.
+
+  Security
+  - Sanitize user inputs to prevent XSS attacks.
+  - Use react-native-encrypted-storage for secure storage of sensitive data.
+  - Ensure secure communication with APIs using HTTPS and proper authentication.
+  - Use Expo's Security guidelines to protect your app: https://docs.expo.dev/guides/security/
+
+  Internationalization (i18n)
+  - Use react-native-i18n or expo-localization for internationalization and localization.
+  - Support multiple languages and RTL layouts.
+  - Ensure text scaling and font adjustments for accessibility.
+
+  Key Conventions
+  1. Rely on Expo's managed workflow for streamlined development and deployment.
+  2. Prioritize Mobile Web Vitals (Load Time, Jank, and Responsiveness).
+  3. Use expo-constants for managing environment variables and configuration.
+  4. Use expo-permissions to handle device permissions gracefully.
+  5. Implement expo-updates for over-the-air (OTA) updates.
+  6. Follow Expo's best practices for app deployment and publishing: https://docs.expo.dev/distribution/introduction/
+  7. Ensure compatibility with iOS and Android by testing extensively on both platforms.
+
+  ## 🆓 ASSET MANAGEMENT SYSTEM
+
+  Free Asset Sources (Zero Setup Required)
+  - Prioritize FREE sources that work without API keys: Lorem Picsum, Pixabay, Unsplash Source, Iconify
+  - Use the built-in asset management system for stock images and icons
+  - Never assume users have API keys - always provide free alternatives first
+  - All free sources are commercial-safe and include proper attribution
+
+  Asset Component Usage
+  - Use AssetPicker for modal-based asset selection with search functionality
+  - Use AssetGallery for displaying and managing selected assets with download/remove capabilities
+  - Use AssetSearch for inline search functionality without modal wrapper
+  - Always set assetType prop ('image' | 'icon' | 'all') based on user needs
+  - Enable multiSelect for bulk operations, disable for single selection
+
+  Asset Hooks and Data Fetching
+  - Use useAssetSearch for simple searches with caching
+  - Use useAssetSearchInfinite for large result sets with pagination
+  - Use useStockImages specifically for image-only searches
+  - Use useIcons specifically for icon-only searches
+  - Use useDownloadAsset for downloading assets with progress tracking
+  - Use useAssetRecommendations for smart asset suggestions based on current selection
+
+  Asset Service Integration
+  - AssetService automatically searches multiple free sources simultaneously
+  - Free sources are prioritized and always searched first (no API keys needed)
+  - Premium sources (Unsplash API, Pexels API) are added automatically if API keys are present
+  - Implement graceful degradation - if one source fails, others continue working
+  - Cache asset searches using TanStack Query for performance
+
+  Asset Types and Interfaces
+  - Use StockImage interface for photography and images
+  - Use Icon interface for vector icons and graphics
+  - All assets include attribution, license, and source information
+  - Use proper TypeScript interfaces for AssetSearchParams with all filtering options
+  - Leverage union types for asset sources: 'lorem-picsum' | 'pixabay' | 'unsplash-source' | 'iconify' | etc.
+
+  Asset Performance and Optimization
+  - Use expo-image for automatic caching and optimization
+  - Implement lazy loading with placeholder images
+  - Use appropriate image sizes (thumbnailUrl for previews, url for display, downloadUrl for saving)
+  - Optimize for mobile with infinite scroll and pagination
+  - Implement proper memory management for large asset collections
+
+  Asset Legal and Attribution
+  - Always display proper attribution using asset.attribution property
+  - Check asset.license for usage rights and restrictions
+  - All included sources are commercial-safe by default
+  - Maintain attribution even after download for legal compliance
+  - Respect rate limits and terms of service for each source
+
+  Environment Configuration
+  - API keys are optional - system works without them
+  - Use EXPO_PUBLIC_UNSPLASH_ACCESS_KEY for enhanced Unsplash features (optional)
+  - Use EXPO_PUBLIC_PEXELS_API_KEY for additional Pexels content (optional)
+  - Never require API keys for basic functionality
+  - Document free vs premium features clearly
+
+  ## 🚀 BOILERPLATE USAGE GUIDELINES
+
+  Project Setup for New Products
+  - Copy the complete asset management system (lib/types/assets.ts, lib/services/asset-service.ts, components/assets/)
+  - Include all API routes (app/api/assets/) for server-side functionality
+  - Copy environment variables template (env.example) and update with new project details
+  - Include asset hooks in lib/api/hooks.ts for data fetching
+  - Copy documentation (docs/ASSETS.md) and customize for new project
+
+  Customization Patterns
+  - Extend AssetService class to add new free sources or modify existing ones
+  - Customize asset component styling while maintaining accessibility
+  - Add project-specific asset filters and search parameters
+  - Implement project-specific asset validation and processing
+  - Add custom asset storage and management features as needed
+
+  Code Organization for Reuse
+  - Keep asset system completely modular and independent
+  - Use clear interfaces and type definitions for easy extension
+  - Implement proper error boundaries and fallback UI
+  - Structure components for easy theming and customization
+  - Document all configuration options and customization points
+
+  API Integration Patterns
+  - Use server-side API routes for secure asset fetching
+  - Implement proper request validation with Zod schemas
+  - Add rate limiting and caching for API endpoints
+  - Handle CORS and security headers properly
+  - Implement graceful error handling and fallbacks
+
+  Multi-Product Considerations
+  - Use consistent naming conventions across all asset-related code
+  - Implement configurable asset sources for different product needs
+  - Add product-specific asset categories and filtering
+  - Consider asset storage quotas and usage limits per product
+  - Implement analytics and usage tracking for asset features
+
+  Deployment and Distribution
+  - Asset system works in all Expo deployment scenarios (development, preview, production)
+  - No additional build configuration required for free sources
+  - API keys can be added at runtime without rebuild
+  - Asset downloads work on both web and mobile platforms
+  - Ensure proper HTTPS configuration for asset URLs
+
+  Maintenance and Updates
+  - Monitor free source availability and implement fallbacks
+  - Update asset service regularly to maintain compatibility
+  - Keep attribution and licensing information current
+  - Test asset functionality across different platforms and devices
+  - Monitor API usage and optimize for performance
+
+  Best Practices for Teams
+  - Document asset usage patterns and guidelines for each project
+  - Create reusable asset collections for brand consistency
+  - Implement asset approval workflows for production use
+  - Train team members on proper attribution and licensing
+  - Establish guidelines for asset quality and brand alignment
+
+  API Documentation
+  - Use Expo's official documentation for setting up and configuring your projects: https://docs.expo.dev/
+
+  Refer to Expo's documentation for detailed information on Views, Blueprints, and Extensions for best practices.
+    
